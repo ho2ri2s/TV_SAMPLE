@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ship_gray">#4F4F4F</color>
+    <color name="crayon_red">#F0163A</color>
+    <color name="white">#FFFFFF</color>
+</resources>
