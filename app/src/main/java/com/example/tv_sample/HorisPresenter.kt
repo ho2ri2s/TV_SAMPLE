@@ -10,8 +10,11 @@ class HorisPresenter : Presenter() {
     private lateinit var layoutInflater: LayoutInflater
     override fun onCreateViewHolder(parent: ViewGroup): ViewHolder {
         if (!::layoutInflater.isInitialized) layoutInflater = LayoutInflater.from(parent.context)
-        return HorisViewHolder(LayoutRowItemBinding.inflate(layoutInflater, parent, false))
+        return HorisViewHolder(LayoutRowItemBinding.inflate(layoutInflater, parent, false)).apply {
+            view.setOnFocusChangeListener { _, hasFocus ->
 
+            }
+        }
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, item: Any?) {
@@ -19,9 +22,9 @@ class HorisPresenter : Presenter() {
         item as String
         with(viewHolder.binding) {
             value = item
-            root.setOnFocusChangeListener { _, hasFocus ->
-                isFocusable = hasFocus
-            }
+//            root.setOnFocusChangeListener { _, hasFocus ->
+//              onCreateViewHolder内でsetしてあげないとFocusHighlightがうまくいかない。
+//            }
         }
     }
 
